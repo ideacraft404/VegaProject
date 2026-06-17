@@ -1,0 +1,22 @@
+{
+  "name": "vega-forge-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VEGA Forge responsive landing page with secure contact form handling.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "VEGA_DEV_OUTBOX=true node server.js",
+    "test:responsive": "node tests/responsive-check.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^7.1.0",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.61.0"
+  }
+}

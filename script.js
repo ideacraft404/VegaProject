@@ -3,6 +3,8 @@ const heroImage = document.querySelector(".hero-image");
 const reveals = document.querySelectorAll(".reveal");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
+const contactForm = document.querySelector("[data-contact-form]");
+const formStatus = document.querySelector("[data-form-status]");
 
 const setHeaderState = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 18);
@@ -53,6 +55,53 @@ if (menuToggle && mobileMenu) {
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setMenuState(false);
+  });
+}
+
+if (contactForm) {
+  const submitButton = contactForm.querySelector("button[type='submit']");
+
+  const setFormStatus = (message, type = "") => {
+    if (!formStatus) return;
+    formStatus.textContent = message;
+    formStatus.classList.toggle("is-success", type === "success");
+    formStatus.classList.toggle("is-error", type === "error");
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(contactForm);
+    const documentFile = formData.get("document");
+
+    if (documentFile && documentFile.size > 10 * 1024 * 1024) {
+      setFormStatus("Attachment must be 10 MB or smaller.", "error");
+      return;
+    }
+
+    setFormStatus("Sending your enquiry...");
+    if (submitButton) submitButton.disabled = true;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json().catch(() => ({
+        ok: false,
+        message: "Unexpected server response.",
+      }));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Unable to send the enquiry.");
+      }
+
+      contactForm.reset();
+      setFormStatus(result.message || "Thanks. Your enquiry has been sent.", "success");
+    } catch (error) {
+      setFormStatus(error.message || "Unable to send the enquiry. Please try again.", "error");
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
   });
 }
 

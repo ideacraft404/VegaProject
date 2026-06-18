@@ -12,7 +12,7 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 const port = Number(process.env.PORT || 8080);
-const contactTo = process.env.CONTACT_TO || "swadesh@gmail.com";
+const contactTo = process.env.CONTACT_TO || "Swadesh@thevegaforge.com";
 const maxAttachmentBytes = 10 * 1024 * 1024;
 
 const allowedMimeTypes = new Set([
@@ -50,7 +50,7 @@ const upload = multer({
   },
   fileFilter: (_req, file, callback) => {
     const ext = path.extname(file.originalname || "").toLowerCase();
-    if (allowedMimeTypes.has(file.mimetype) && allowedExtensions.has(ext)) {
+    if (allowedExtensions.has(ext)) {
       callback(null, true);
       return;
     }
@@ -61,7 +61,20 @@ const upload = multer({
 app.set("trust proxy", 1);
 app.use(
   helmet({
-    contentSecurityPolicy: false,
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        objectSrc: ["'none'"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+        frameAncestors: ["'none'"],
+      },
+    },
   })
 );
 
@@ -82,15 +95,27 @@ app.get("/favicon.ico", (_req, res) => {
   res.status(204).end();
 });
 
-app.use(
-  "/api/contact",
-  rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 8,
-    standardHeaders: true,
-    legacyHeaders: false,
-  })
-);
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 8,
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (_req, res) => {
+    res.status(429).json({
+      ok: false,
+      message: "Too many submissions. Please wait 15 minutes and try again.",
+    });
+  },
+});
+
+app.get("/api/contact/status", (_req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.json({
+    ok: true,
+    emailConfigured: smtpConfigured(),
+    developmentOutbox: !smtpConfigured() && process.env.VEGA_DEV_OUTBOX === "true",
+  });
+});
 
 const clean = (value, limit = 1000) =>
   String(value || "")
@@ -122,6 +147,31 @@ const makeTransporter = () =>
     },
   });
 
+const validateAttachmentContents = async (file) => {
+  if (!file) return;
+
+  const ext = path.extname(file.originalname || "").toLowerCase();
+  const { fileTypeFromBuffer } = await import("file-type");
+  const detected = await fileTypeFromBuffer(file.buffer);
+
+  if (!detected) {
+    throw new Error("The attachment could not be verified.");
+  }
+
+  const detectedMime = detected.mime;
+  const isOpenXml =
+    detectedMime === "application/zip" && [".docx", ".pptx", ".xlsx", ".zip"].includes(ext);
+  const isLegacyOffice =
+    detectedMime === "application/x-cfb" && [".doc", ".ppt", ".xls"].includes(ext);
+  const isDirectMatch = allowedMimeTypes.has(detectedMime) && file.mimetype === detectedMime;
+  const isBrowserOctetStream =
+    allowedMimeTypes.has(detectedMime) && file.mimetype === "application/octet-stream";
+
+  if (!isOpenXml && !isLegacyOffice && !isDirectMatch && !isBrowserOctetStream) {
+    throw new Error("The attachment contents do not match the selected file type.");
+  }
+};
+
 const saveDevSubmission = async ({ fields, file }) => {
   const outboxDir = path.join(__dirname, ".submissions");
   await fs.promises.mkdir(outboxDir, { recursive: true });
@@ -147,7 +197,16 @@ const saveDevSubmission = async ({ fields, file }) => {
   );
 };
 
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", contactLimiter, (req, res) => {
+  const origin = req.get("origin");
+  const requestedWith = req.get("x-requested-with");
+  const expectedOrigin = `${req.protocol}://${req.get("host")}`;
+
+  if ((origin && origin !== expectedOrigin) || requestedWith !== "XMLHttpRequest") {
+    res.status(403).json({ ok: false, message: "The form request could not be verified." });
+    return;
+  }
+
   upload.single("document")(req, res, async (error) => {
     if (error) {
       const message =
@@ -164,10 +223,19 @@ app.post("/api/contact", (req, res) => {
       company: clean(req.body.company, 180),
       phone: clean(req.body.phone, 60),
       message: clean(req.body.message, 2500),
+      website: clean(req.body.website, 200),
     };
 
-    if (!fields.name || !fields.email || !fields.message) {
-      res.status(400).json({ ok: false, message: "Name, email, and message are required." });
+    if (fields.website) {
+      res.status(400).json({ ok: false, message: "The form submission was rejected." });
+      return;
+    }
+
+    if (!fields.name || !fields.email || !fields.company || !fields.message) {
+      res.status(400).json({
+        ok: false,
+        message: "Name, work email, organisation, and project summary are required.",
+      });
       return;
     }
 
@@ -176,8 +244,16 @@ app.post("/api/contact", (req, res) => {
       return;
     }
 
+    if (fields.message.length < 20) {
+      res.status(400).json({
+        ok: false,
+        message: "Please provide at least 20 characters about what you are building.",
+      });
+      return;
+    }
+
     const text = [
-      "New Build with VEGA enquiry",
+      "New VEGA Forge contact enquiry",
       "",
       `Name: ${fields.name}`,
       `Email: ${fields.email}`,
@@ -189,7 +265,7 @@ app.post("/api/contact", (req, res) => {
     ].join("\n");
 
     const html = `
-      <h2>New Build with VEGA enquiry</h2>
+      <h2>New VEGA Forge contact enquiry</h2>
       <p><strong>Name:</strong> ${escapeHtml(fields.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(fields.email)}</p>
       <p><strong>Company:</strong> ${escapeHtml(fields.company || "Not provided")}</p>
@@ -199,12 +275,22 @@ app.post("/api/contact", (req, res) => {
     `;
 
     try {
+      await validateAttachmentContents(req.file);
+    } catch (validationError) {
+      res.status(400).json({
+        ok: false,
+        message: validationError.message || "The attachment could not be verified.",
+      });
+      return;
+    }
+
+    try {
       if (smtpConfigured()) {
-        await makeTransporter().sendMail({
+        const result = await makeTransporter().sendMail({
           to: contactTo,
           from: process.env.SMTP_FROM || process.env.SMTP_USER,
           replyTo: fields.email,
-          subject: "Build with VEGA enquiry",
+          subject: "VEGA Forge contact enquiry",
           text,
           html,
           attachments: req.file
@@ -218,15 +304,24 @@ app.post("/api/contact", (req, res) => {
             : [],
         });
 
-        res.json({ ok: true, message: "Thanks. Your enquiry has been sent securely." });
+        if (!result.accepted?.length) {
+          throw new Error("The mail provider did not accept the message.");
+        }
+
+        res.json({
+          ok: true,
+          delivered: true,
+          message: "Thank you. Your enquiry has been delivered securely.",
+        });
         return;
       }
 
       if (process.env.VEGA_DEV_OUTBOX === "true") {
         await saveDevSubmission({ fields, file: req.file });
-        res.json({
+        res.status(202).json({
           ok: true,
-          message: "Thanks. Your enquiry was captured in the local development outbox.",
+          delivered: false,
+          message: "Thank you. Your enquiry has been received.",
         });
         return;
       }
@@ -244,6 +339,11 @@ app.post("/api/contact", (req, res) => {
     }
   });
 });
+
+if (process.env.NODE_ENV === "production" && !smtpConfigured()) {
+  console.error("SMTP configuration is required in production.");
+  process.exit(1);
+}
 
 app.listen(port, () => {
   console.log(`VEGA Forge running at http://localhost:${port}`);

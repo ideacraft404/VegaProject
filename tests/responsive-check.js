@@ -22,6 +22,18 @@ const viewports = [
   for (const viewport of viewports) {
     const page = await browser.newPage({ viewport });
     await page.goto("http://localhost:8080", { waitUntil: "networkidle" });
+    await page.evaluate(async () => {
+      const step = Math.max(window.innerHeight * 0.7, 400);
+      for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+        window.scrollTo(0, y);
+        await new Promise((resolve) => setTimeout(resolve, 80));
+      }
+      window.scrollTo(0, 0);
+      document.querySelectorAll(".reveal").forEach((element) => {
+        element.classList.add("is-visible");
+      });
+      await new Promise((resolve) => setTimeout(resolve, 150));
+    });
     await page.screenshot({ path: `/tmp/vega-${viewport.name}.png`, fullPage: true });
 
     const metrics = await page.evaluate(() => {

@@ -60,23 +60,38 @@ if (menuToggle && mobileMenu) {
 
 if (contactForm) {
   const submitButton = contactForm.querySelector("button[type='submit']");
+  const requiredFields = [...contactForm.querySelectorAll("[required]")];
 
   const setFormStatus = (message, type = "") => {
     if (!formStatus) return;
     formStatus.textContent = message;
     formStatus.classList.toggle("is-success", type === "success");
     formStatus.classList.toggle("is-error", type === "error");
+    formStatus.classList.toggle("is-warning", type === "warning");
   };
+
+  const updateFieldState = (field) => {
+    field.setAttribute("aria-invalid", String(!field.validity.valid));
+  };
+
+  requiredFields.forEach((field) => {
+    field.addEventListener("blur", () => updateFieldState(field));
+    field.addEventListener("input", () => {
+      if (field.getAttribute("aria-invalid") === "true") updateFieldState(field);
+    });
+  });
 
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const formData = new FormData(contactForm);
-    const documentFile = formData.get("document");
+    requiredFields.forEach(updateFieldState);
 
-    if (documentFile && documentFile.size > 10 * 1024 * 1024) {
-      setFormStatus("Attachment must be 10 MB or smaller.", "error");
+    if (!contactForm.checkValidity()) {
+      setFormStatus("Complete all required fields before submitting.", "error");
+      contactForm.querySelector(":invalid")?.focus();
       return;
     }
+
+    const formData = new FormData(contactForm);
 
     setFormStatus("Sending your enquiry...");
     if (submitButton) submitButton.disabled = true;
@@ -84,6 +99,9 @@ if (contactForm) {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+        },
         body: formData,
       });
       const result = await response.json().catch(() => ({
@@ -96,7 +114,11 @@ if (contactForm) {
       }
 
       contactForm.reset();
-      setFormStatus(result.message || "Thanks. Your enquiry has been sent.", "success");
+      requiredFields.forEach((field) => field.removeAttribute("aria-invalid"));
+      setFormStatus(
+        result.message || "Thank you. Your enquiry has been received.",
+        result.delivered === false ? "warning" : "success"
+      );
     } catch (error) {
       setFormStatus(error.message || "Unable to send the enquiry. Please try again.", "error");
     } finally {

@@ -1,250 +1,499 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="VEGA Forge is India's Hardware Commercialisation Utility, turning deep-tech innovation into certified, manufacturable products.">
-    <title>VEGA Forge | India's Hardware Commercialisation Engine</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="VEGA Forge home">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
-        <span class="brand-word">VEGA FORGE</span>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#stack">Stack</a>
-        <a href="#model">Model</a>
-        <a href="#sectors">Sectors</a>
-        <a href="#infrastructure">Infrastructure</a>
-      </nav>
-      <a class="header-cta" href="#contact">Build With Vega</a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEGA — From prototype to purchase orders</title>
+<meta name="description" content="VEGA embeds with a few selected deep-tech hardware companies in India at TRL 5–9 and stays until the technology becomes a product that ships to paying customers.">
+<link rel="canonical" href="https://thevegaforge.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thevegaforge.com/">
+<meta property="og:title" content="VEGA — From prototype to purchase orders">
+<meta property="og:description" content="Good hardware companies die between prototype and purchase order. VEGA gets them across.">
+<meta property="og:image" content="https://thevegaforge.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15181D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
-      <nav aria-label="Mobile navigation">
-        <a href="#about">About</a>
-        <a href="#stack">Stack</a>
-        <a href="#model">Model</a>
-        <a href="#sectors">Sectors</a>
-        <a href="#infrastructure">Infrastructure</a>
-        <a href="#contact">Build With Vega</a>
-      </nav>
-    </div>
+body{margin:0;background:#F5F4F0;color:#15181D;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#B8430F}a:hover{color:#8E330B}
+section[id]{scroll-margin-top:88px}
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="assets/hero-industrial.png" alt="Advanced semiconductor and hardware engineering lab with precision tools and cleanroom lighting">
-        <div class="hero-shade" aria-hidden="true"></div>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-content reveal">
-          <p class="eyebrow">India's Hardware Commercialisation Utility</p>
-          <h1 id="hero-title">India's Hardware Commercialisation Engine</h1>
-          <p class="hero-subtitle">The platform turning Indian deep-tech innovations into certified, manufacturable, globally competitive products.</p>
-          <div class="hero-actions" aria-label="Primary calls to action">
-            <a class="button button-primary" href="#contact">Build With Vega</a>
-          </div>
-        </div>
-        <div class="hero-meta reveal" aria-label="Platform focus">
-          <span>DFM Engineering</span>
-          <span>System Integration</span>
-          <span>Certification Navigation</span>
-          <span>Pilot Manufacturing</span>
-          <span>Procurement Exchange</span>
-          <span>Hardware Capital</span>
-        </div>
-      </section>
+:focus-visible{outline:2px solid #B8430F;outline-offset:3px}
+section{scroll-margin-top:16px}
+.trl{height:44px;border:0;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:14px;background:#E4E2DC;color:#3A4048}
+.trl.vega{background:#B8430F;color:#fff}
+.trl.on{box-shadow:inset 0 0 0 2px #15181D;background:#C9C6BE}
+.trl.vega.on{background:#8E330B}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
 
-      <section class="section why" aria-labelledby="why-title">
-        <div class="section-kicker reveal">Why VEGA</div>
-        <div class="why-layout">
-          <h2 id="why-title" class="reveal">India can design the future. Now it must build it.</h2>
-          <div class="why-copy reveal">
-            <p>India has world-class talent, semiconductor design capability, research institutions, and manufacturing momentum. The missing layer is commercialisation: the journey from prototype to product.</p>
-            <p>VEGA bridges this gap.</p>
-          </div>
-        </div>
-      </section>
 
-      <section id="about" class="section about" aria-labelledby="about-title">
-        <div class="about-heading reveal">
-          <p class="section-kicker">About VEGA</p>
-          <h2 id="about-title">An engineering organisation built around the realities of commercial hardware.</h2>
-        </div>
-        <div class="about-grid">
-          <p class="about-intro reveal">VEGA Forge brings product engineering, advanced labs, pilot manufacturing, certification pathways, procurement, and hardware capital into one execution platform.</p>
-          <div class="about-principles reveal">
-            <article>
-              <span>01</span>
-              <h3>Founder-first execution</h3>
-              <p>Hands-on engineering support from design decisions to production readiness.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>National infrastructure</h3>
-              <p>Shared technical capacity for deep-tech companies building physical products.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Global ambition</h3>
-              <p>Products designed for certification, export readiness, and international markets.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+<div style="background: #F5F4F0; color: #15181D; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 18px; line-height: 1.6">
 
-      <section id="stack" class="section stack" aria-labelledby="stack-title">
-        <div class="section-heading reveal">
-          <p class="section-kicker">The VEGA Stack</p>
-          <h2 id="stack-title">A commercialisation layer for hardware that has to work in the real world.</h2>
-        </div>
-        <div class="stack-grid">
-          <article class="stack-card reveal">
-            <span class="card-index">01</span>
-            <h3>DFM Engineering</h3>
-            <p>Designs that survive production.</p>
-          </article>
-          <article class="stack-card reveal">
-            <span class="card-index">02</span>
-            <h3>System Integration</h3>
-            <p>Turn chips and technologies into complete products.</p>
-          </article>
-          <article class="stack-card reveal">
-            <span class="card-index">03</span>
-            <h3>Certification Navigation</h3>
-            <p>From compliance to global market readiness.</p>
-          </article>
-          <article class="stack-card reveal">
-            <span class="card-index">04</span>
-            <h3>Pilot Manufacturing</h3>
-            <p>First 100-1,000 production units.</p>
-          </article>
-          <article class="stack-card reveal">
-            <span class="card-index">05</span>
-            <h3>Procurement Exchange</h3>
-            <p>Connecting breakthrough technologies with buyers.</p>
-          </article>
-          <article class="stack-card reveal">
-            <span class="card-index">06</span>
-            <h3>Hardware Capital</h3>
-            <p>Financing the journey from prototype to scale.</p>
-          </article>
-        </div>
-      </section>
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(245, 244, 240, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="#top" style="color: #15181D; text-decoration: none; font-weight: 700; font-size: 22px; letter-spacing: 0.32em">VEGA</a>
+<nav style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; font-size: 15px">
+<a href="#what" style="color: #15181D; text-decoration: none">What we do</a>
+<a href="#investors" style="color: #15181D; text-decoration: none">Investors</a>
+<a href="#doors" style="color: #15181D; text-decoration: none">Work with us</a>
+<a href="#talk" style="color: #F5F4F0; background: #15181D; text-decoration: none; padding: 10px 18px; border-radius: 2px">Talk to us</a>
+</nav>
+</div>
+</header>
 
-      <section id="model" class="section model" aria-labelledby="model-title">
-        <img class="band-image" src="assets/pilot-manufacturing.png" alt="Pilot manufacturing cell with robotic inspection and small batch hardware assembly">
-        <div class="band-overlay" aria-hidden="true"></div>
-        <div class="model-content">
-          <div class="section-heading reveal">
-            <p class="section-kicker">The VEGA Model</p>
-            <h2 id="model-title">Research becomes revenue when the missing middle is owned.</h2>
-          </div>
-          <ol class="timeline reveal" aria-label="Commercialisation timeline">
-            <li>Research</li>
-            <li>Prototype</li>
-            <li>Validation</li>
-            <li>Manufacturing</li>
-            <li>Certification</li>
-            <li>Purchase Orders</li>
-            <li>Export Readiness</li>
-            <li>Global Markets</li>
-          </ol>
-          <p class="model-statement reveal">VEGA owns the missing middle.</p>
-        </div>
-      </section>
+<section id="top" style="max-width: 1120px; margin: 0 auto; padding: 96px 24px 72px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">Hardware commercialisation · India</div>
+<h1 style="margin: 20px 0 0; font-size: clamp(36px, 5.4vw, 64px); line-height: 1.08; font-weight: 600; letter-spacing: -0.02em; max-width: 960px">Good hardware companies die between prototype and purchase order. <span style="color: #B8430F">VEGA gets them across.</span></h1>
+<p style="margin: 28px 0 0; font-size: clamp(18px, 1.6vw, 21px); color: #3A4048; max-width: 680px">An operating team that embeds inside a few selected hardware and deep-tech companies at TRL 5–9, and stays until the technology becomes a product that ships reliably, repeatedly and economically to paying customers.</p>
+<div style="margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap">
+<a href="#talk" style="background: #B8430F; color: #FFFFFF; text-decoration: none; padding: 14px 24px; font-weight: 500; border-radius: 2px">Talk to us</a>
+<a href="mailto:swadesh@thevegaforge.com?subject=Founder%20%E2%80%94%20what%27s%20blocking%20us&amp;body=What%20are%20you%20building%3F%0A%0AWhat%20TRL%20are%20you%20at%3F%0A%0AWhat%27s%20blocking%20you%20right%20now%3F%0A" style="color: #15181D; text-decoration: none; padding: 13px 23px; border: 1px solid #15181D; font-weight: 500; border-radius: 2px">Founders: tell us what's blocking you</a>
+</div>
 
-      <section id="sectors" class="section sectors" aria-labelledby="sectors-title">
-        <div class="section-heading reveal">
-          <p class="section-kicker">Sectors</p>
-          <h2 id="sectors-title">Built for technologies that need labs, factories, certification, and buyers.</h2>
-        </div>
-        <div class="sector-grid">
-          <article class="sector-item reveal"><img src="assets/icons/cpu.svg" alt="" aria-hidden="true">Semiconductors</article>
-          <article class="sector-item reveal"><img src="assets/icons/shield.svg" alt="" aria-hidden="true">Defence &amp; Drones</article>
-          <article class="sector-item reveal"><img src="assets/icons/bot.svg" alt="" aria-hidden="true">Robotics &amp; Industrial Automation</article>
-          <article class="sector-item reveal"><img src="assets/icons/battery-charging.svg" alt="" aria-hidden="true">Energy &amp; EV Systems</article>
-          <article class="sector-item reveal"><img src="assets/icons/heart-pulse.svg" alt="" aria-hidden="true">MedTech &amp; Bio Hardware</article>
-          <article class="sector-item reveal"><img src="assets/icons/radio-tower.svg" alt="" aria-hidden="true">Telecom Infrastructure</article>
-          <article class="sector-item reveal"><img src="assets/icons/wheat.svg" alt="" aria-hidden="true">Agricultural Technology</article>
-          <article class="sector-item reveal"><img src="assets/icons/satellite.svg" alt="" aria-hidden="true">Space Technology</article>
-        </div>
-      </section>
+<figure style="margin: 80px 0 0">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 12px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #15181D">Technology Readiness Level (TRL)</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">Hover or tap a level</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 4px">
+<button type="button" class="trl" data-n="1" data-label="Basic principles observed" data-def="Scientific research begins; the underlying physics or chemistry is understood." aria-label="TRL 1: Basic principles observed">1</button>
+<button type="button" class="trl" data-n="2" data-label="Technology concept formulated" data-def="A practical application is proposed. Still speculative, with no proof yet." aria-label="TRL 2: Technology concept formulated">2</button>
+<button type="button" class="trl" data-n="3" data-label="Proof of concept" data-def="Lab experiments show the key idea can work." aria-label="TRL 3: Proof of concept">3</button>
+<button type="button" class="trl" data-n="4" data-label="Validated in the lab" data-def="Basic components work together in a laboratory setting." aria-label="TRL 4: Validated in the lab">4</button>
+<button type="button" class="trl vega" data-n="5" data-label="Validated in a relevant environment" data-def="Components are tested together in conditions close to real use." aria-label="TRL 5: Validated in a relevant environment">5</button>
+<button type="button" class="trl vega" data-n="6" data-label="Prototype demonstrated" data-def="A working prototype performs in a relevant, realistic environment." aria-label="TRL 6: Prototype demonstrated">6</button>
+<button type="button" class="trl vega" data-n="7" data-label="Prototype in real operation" data-def="A near-final prototype works in the actual operating environment." aria-label="TRL 7: Prototype in real operation">7</button>
+<button type="button" class="trl vega" data-n="8" data-label="System complete and qualified" data-def="The final product is built, tested, certified and ready to manufacture." aria-label="TRL 8: System complete and qualified">8</button>
+<button type="button" class="trl vega" data-n="9" data-label="Proven in real use" data-def="The product is deployed, delivering to paying customers, and made repeatedly." aria-label="TRL 9: Proven in real use">9</button>
 
-      <section id="infrastructure" class="section infrastructure" aria-labelledby="infra-title">
-        <div class="infra-media reveal">
-          <img src="assets/lab-infrastructure.png" alt="Electronics engineering lab with PCB inspection, instrumentation, and rapid prototyping tools">
-        </div>
-        <div class="infra-copy">
-          <p class="section-kicker reveal">Infrastructure</p>
-          <h2 id="infra-title" class="reveal">More than capital. An engineering organisation.</h2>
-          <div class="lab-list reveal" aria-label="Advanced lab capabilities">
-            <span>Design &amp; Simulation</span>
-            <span>Electronics Labs</span>
-            <span>Rapid Prototyping</span>
-            <span>Reliability Testing</span>
-            <span>Chemistry Labs</span>
-            <span>Manufacturing Tools</span>
-          </div>
-        </div>
-      </section>
+</div>
+<div style="display: grid; grid-template-columns: 4fr 5fr; gap: 4px; margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.4">
+<div style="color: #575E68">Idea → prototype<br>Hard. Well supported.</div>
+<div style="color: #B8430F">Prototype → purchase orders<br>Harder. Where VEGA works.</div>
+</div>
+<div aria-live="polite" style="margin-top: 20px; background: #FFFFFF; border: 1px solid #D9D7D0; padding: 18px 22px; display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #B8430F; min-width: 64px"><span id="trl-n">TRL 5</span></div>
+<div style="flex: 1; min-width: 220px">
+<div style="font-weight: 600; font-size: 17px"><span id="trl-label">Validated in a relevant environment</span></div>
+<div style="font-size: 15px; color: #3A4048; margin-top: 2px"><span id="trl-def">Components are tested together in conditions close to real use.</span></div>
+</div>
+</div>
+</figure>
+</section>
 
-      <section id="contact" class="final-cta" aria-labelledby="cta-title">
-        <div class="final-inner reveal">
-          <div class="final-copy">
-            <p class="section-kicker">Build With Vega</p>
-            <h2 id="cta-title">Bring us the technology. We will help build the product.</h2>
-            <p>Tell us what you are building, where you are in the journey, and what is blocking commercialisation. Our team will review your enquiry and respond directly.</p>
-          </div>
-          <form id="contact-form" class="contact-form" enctype="multipart/form-data" novalidate data-contact-form>
-            <div class="form-row">
-              <label for="name">Name <span aria-hidden="true">*</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required aria-required="true">
-            </div>
-            <div class="form-row">
-              <label for="email">Work email <span aria-hidden="true">*</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" maxlength="180" required aria-required="true">
-            </div>
-            <div class="form-row">
-              <label for="company">Organisation <span aria-hidden="true">*</span></label>
-              <input id="company" name="company" type="text" autocomplete="organization" maxlength="180" required aria-required="true">
-            </div>
-            <div class="form-row">
-              <label for="phone">Phone <span class="optional-label">(optional)</span></label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="60">
-            </div>
-            <div class="form-row form-row-full">
-              <label for="message">What are you building? <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" rows="4" minlength="20" maxlength="2500" required aria-required="true"></textarea>
-            </div>
-            <div class="form-row hp-field" aria-hidden="true">
-              <label for="website">Website</label>
-              <input id="website" name="website" type="text" autocomplete="off" tabindex="-1">
-            </div>
-            <button class="button button-primary form-submit" type="submit">Build With Vega</button>
-            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
-          </form>
-        </div>
-      </section>
-    </main>
+<section style="border-top: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">01 · The gap that exists today in deep-tech hardware sectors</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 820px">A prototype proves the technology works. It doesn't prove there's a business.</h2>
+<p style="margin: 24px 0 0; color: #3A4048; max-width: 680px">After technical proof, everything has to work together: the design, the people, the suppliers, the factory, the certification, the capital and the customer. In India today, the support for each of these is thin, scattered or hard to reach.</p>
 
-    <footer id="partners" class="footer">
-      <a class="brand" href="#top" aria-label="VEGA Forge home">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
-        <span class="brand-word">VEGA FORGE</span>
-      </a>
-      <p>India's Hardware Commercialisation Utility</p>
-    </footer>
+<figure aria-label="The valley of death: between prototype at TRL 5 and commercial scale at TRL 9 and beyond." style="margin: 64px 0 0">
+<div style="display: flex; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">
+<div>Prototype · TRL 5</div>
+<div>Commercial scale · TRL 9+</div>
+</div>
+<svg viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true" style="display: block; width: 100%; height: 160px; margin-top: 8px">
+<path d="M170 30 C 300 30, 330 165, 500 165 C 670 165, 700 30, 830 30 Z" fill="#E4E2DC" stroke="none"></path>
+<path d="M0 30 L170 30 C 300 30, 330 165, 500 165 C 670 165, 700 30, 830 30 L1000 30" fill="none" stroke="#15181D" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<line x1="170" y1="30" x2="830" y2="30" stroke="#B8430F" stroke-width="3" stroke-dasharray="10 8" vector-effect="non-scaling-stroke"></line>
+</svg>
+<div style="display: flex; justify-content: center; gap: 24px; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; flex-wrap: wrap">
+<span style="color: #575E68">Grey: the hardware valley of death</span>
+<span style="color: #B8430F">Dashed: the bridge VEGA builds with the founder</span>
+</div>
+</figure>
 
-    <script src="script.js"></script>
-  </body>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 56px">
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">BUILD IT</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 20px">The expertise is scarce.</div>
+<p style="margin: 12px 0 0; font-size: 16px; color: #3A4048">Few early hardware teams have reliability, test and design-for-manufacture skills in-house, and few engineers in India have done it at scale. Design choices made now lock in the unit economics.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">MAKE IT</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 20px">Suppliers rarely bet on low volume.</div>
+<p style="margin: 12px 0 0; font-size: 16px; color: #3A4048">Few suppliers and manufacturers will back an evolving design at small volumes. Testing, tooling and certification capacity is scattered, and hard to book in time.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">SELL IT</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 20px">Pilots rarely become orders.</div>
+<p style="margin: 12px 0 0; font-size: 16px; color: #3A4048">Institutional buyers run proof of concept after pilot after pilot. Few startups have someone beside them who has turned pilots into purchase orders before.</p>
+</div>
+</div>
+<p style="margin: 40px 0 0; font-size: 20px; font-weight: 500; max-width: 760px">All three have to come together before the runway runs out. The technology keeps progressing. The business runs out of time.</p>
+</div>
+</section>
+
+<section id="what" style="border-top: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">02 · What VEGA does to address this gap for startups</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 900px">VEGA embeds with the founder and wears whichever hat is blocking progress.</h2>
+<p style="margin: 24px 0 0; color: #3A4048; max-width: 700px">Not a batch. Not office hours. Not advice from the sidelines. A team of experienced founders, builders, operators and investors who work inside a small number of companies until they cross the valley.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 56px; border-top: 2px solid #15181D">
+<div style="padding: 28px 24px 28px 0">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">BUILD · THE CTO HAT</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">Engineering, architecture, reliability, failure analysis, design for manufacture.</p>
+</div>
+<div style="padding: 28px 24px 28px 0">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">MAKE · THE COO HAT</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">Suppliers, tooling, manufacturing partners, quality systems, scale-up.</p>
+</div>
+<div style="padding: 28px 24px 28px 0">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">SELL · THE CEO / CBO HAT</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">Customer conversations, partnerships, turning pilots into first large orders.</p>
+</div>
+<div style="padding: 28px 24px 28px 0">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">FUND · THE CAPITAL HAT</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">Capital strategy, investor positioning, diligence preparation, introductions.</p>
+</div>
+</div>
+
+<h3 style="margin: 80px 0 0; font-size: 26px; line-height: 1.25; font-weight: 600">What VEGA brings to the table.</h3>
+<p style="margin: 12px 0 0; color: #3A4048; max-width: 700px">Six things every hardware company needs to cross, and rarely has all of.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px">
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">01</div>
+<div style="font-weight: 600; font-size: 20px">Talent</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">Specialists in design for manufacture, reliability, manufacturing and systems engineering, and hardware product management, brought in exactly when the company needs them.</p>
+<div style="margin-top: auto; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8E330B">BUILDING · A hands-on fellowship training India's top engineers for hardware roles</div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">02</div>
+<div style="font-weight: 600; font-size: 20px">Design for manufacture &amp; reliability</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">VEGA's engineers become an extension of the startup's team: pressure-testing the design for manufacture, assembly, safety, yield and cost, then co-engineering the fixes before late changes get expensive.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">03</div>
+<div style="font-weight: 600; font-size: 20px">Suppliers &amp; manufacturing partners</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">Vetted partners who will support low volume today and scale tomorrow, matched on specs, qualification, tooling, quality and lead times.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">04</div>
+<div style="font-weight: 600; font-size: 20px">Development, test &amp; certification</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">Access to the right labs, workshops, test facilities and certification bodies, when they're needed, without months of delay.</p>
+<div style="margin-top: auto; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8E330B">SETTING UP · VEGA's own design, engineering and test hubs where India has gaps</div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">05</div>
+<div style="font-weight: 600; font-size: 20px">Go-to-market &amp; institutional sales</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">VEGA sits with the founder on what's blocking sales, so pilots turn into letters of intent, paid deployments, purchase orders and repeat business.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">06</div>
+<div style="font-weight: 600; font-size: 20px">Stage-fit capital</div>
+<p style="margin: 0; font-size: 16px; color: #3A4048">A capital plan timed to engineering, certification, manufacturing and customer milestones: milestone equity, venture debt, and tooling, pilot and PO finance.</p>
+<div style="margin-top: auto; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8E330B">BUILDING · A VEGA venture fund and a curated pool of hardware-aware investors</div>
+</div>
+</div>
+
+<div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start; padding-top: 40px; border-top: 1px solid #D9D7D0">
+<h3 style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600">Network first. Our own hubs where India has gaps.</h3>
+<p style="margin: 0; color: #3A4048">Today, VEGA gets its companies into the best existing labs, workshops and test facilities, across India and abroad where needed. Where the gaps are real, in design, development, engineering and testing, VEGA is setting up its own hubs. We don't build what already exists.</p>
+</div>
+</div>
+</section>
+
+<section id="investors" style="background: #ECEAE3; border-top: 1px solid #D9D7D0; border-bottom: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">03 · What does VEGA solve for investors</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 860px">A good investment can still die from bad commercialisation.</h2>
+<p style="margin: 24px 0 0; color: #3A4048; max-width: 700px">A company can have strong technology, a real market, capable founders, customer interest and capital, and still fail between prototype and scale.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px">
+<div style="background: #F5F4F0; border: 1px solid #D9D7D0; padding: 32px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #575E68">AS IS TODAY</div>
+<div style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; color: #3A4048">
+<div>Investor → founder → dozens of decisions alone</div>
+<div>Problems surface late</div>
+<div>Specialists arrive late</div>
+<div>More expensive wrong turns</div>
+<div>Capital burns faster</div>
+</div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #B8430F; padding: 32px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #B8430F">WITH VEGA EMBEDDED</div>
+<div style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; color: #15181D">
+<div>Investor → founder + experienced operator</div>
+<div>Problems identified earlier</div>
+<div>The right capability brought in faster</div>
+<div>Fewer avoidable mistakes</div>
+<div>Better capital efficiency, faster path to commercial proof</div>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start">
+<p style="margin: 0; font-size: 22px; line-height: 1.45; font-weight: 500">Investors can judge the technology and the market. What's hard to judge, and where most hardware companies actually fail, is execution in the middle mile. That's the risk VEGA works on.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #3A4048">
+<div><span style="font-family: 'IBM Plex Mono', monospace; color: #B8430F">↓</span>  Execution and scale-up risk</div>
+<div><span style="font-family: 'IBM Plex Mono', monospace; color: #B8430F">↓</span>  Capital spent on avoidable mistakes</div>
+<div><span style="font-family: 'IBM Plex Mono', monospace; color: #B8430F">↓</span>  Time spent rescuing portfolio companies</div>
+<div><span style="font-family: 'IBM Plex Mono', monospace; color: #B8430F">↑</span>  Sharper technical and operational diligence</div>
+<div><span style="font-family: 'IBM Plex Mono', monospace; color: #B8430F">↑</span>  Confidence before follow-on capital</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="proof" style="background: #FFFFFF; border-bottom: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">04 · VEGA’s “proof is in the pudding”</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 900px">Swadesh has worked at every stage VEGA now helps founders cross.</h2>
+<p style="margin: 24px 0 0; color: #3A4048; max-width: 700px">18+ years across three continents: from materials research, to high-volume chip manufacturing, to fab equipment, consumer devices, robotics, a founder's seat, and a launched and scaled EV brand.</p>
+
+<div style="margin-top: 56px; overflow-x: auto; padding-top: 6px">
+<div style="display: grid; grid-template-columns: repeat(7, minmax(148px, 1fr)); gap: 0; min-width: 1036px; border-top: 2px solid #15181D">
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">MATERIALS &amp; NOVEL DEVICES R&amp;D</div>
+<div style="margin-top: 6px; font-weight: 600">Univ. of Minnesota, USA</div>
+<div style="font-size: 14px; color: #15181D">MS &amp; PhD, Semiconductors</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Sensor and device research for US Air Force, Department of Energy and DARPA projects.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">SEMICONDUCTOR INDUSTRIALISATION</div>
+<div style="margin-top: 6px; font-weight: 600">Intel, Portland, USA</div>
+<div style="font-size: 14px; color: #15181D">Senior Engineer, Chip Development</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Moved chip processes from R&amp;D to manufacturing readiness and high-volume manufacturing.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">SEMICONDUCTOR CAPITAL EQUIPMENT</div>
+<div style="margin-top: 6px; font-weight: 600">Lam Research, USA</div>
+<div style="font-size: 14px; color: #15181D">Staff Engineer, Product Development</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Built and commercialised robotic equipment used in fabs at TSMC, Intel, Samsung and Micron.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">CONSUMER ELECTRONICS</div>
+<div style="margin-top: 6px; font-weight: 600">Apple, Cupertino, USA</div>
+<div style="font-size: 14px; color: #15181D">Sensor Engineer, Apple Watch &amp; iPhone</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">First-generation Apple Watch and the first Force Touch iPhone; reliability engineering and supplier capability across Asia.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">ROBOTICS &amp; AUTOMATION</div>
+<div style="margin-top: 6px; font-weight: 600">Flipkart, Bengaluru</div>
+<div style="font-size: 14px; color: #15181D">Director, Automation, Supply Chain</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Built and scaled warehouse automation with robotics, IoT, telematics and EV companies.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">SUPPLY-CHAIN TECH &amp; AI</div>
+<div style="margin-top: 6px; font-weight: 600">ZoomTail, Bengaluru</div>
+<div style="font-size: 14px; color: #15181D">Co-founder &amp; COO</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Turned vision AI into a real product from the founder's side: deployment, customers, talent and capital from scratch.</p>
+</div>
+<div style="padding: 20px 20px 24px 0">
+<div style="width: 10px; height: 10px; background: #B8430F; margin-top: -26px"></div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8E330B">EVs &amp; BATTERIES<br>0 → 1 → 100x</div>
+<div style="margin-top: 6px; font-weight: 600">Hero MotoCorp, VIDA</div>
+<div style="font-size: 14px; color: #15181D">CBO, EV Business · Head, Corporate Innovation</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #575E68">Launched VIDA; led product, engineering, manufacturing, sales, distribution, strategy and M&amp;A.</p>
+</div>
+</div>
+</div>
+<a href="#team" style="display: inline-block; margin-top: 28px; font-weight: 500">Meet the full VEGA team →</a>
+
+<h3 style="margin: 80px 0 0; font-size: 26px; line-height: 1.25; font-weight: 600">Working with a selected few companies today.</h3>
+<p style="margin: 12px 0 0; color: #3A4048; max-width: 700px">We are focussing on EV &amp; EV components, Drones &amp; Aerospace, Robotics &amp; Automation. And we carefully select a handful of startups to work with, based on our selection criteria. A few of them described below:</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 40px">
+<div style="border: 1px solid #D9D7D0; background: #F5F4F0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">EV · BATTERY SWAPPING</div>
+<div style="margin-top: 10px; font-weight: 600; font-size: 19px">Battery-swappable city EVs</div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WORKING</div>
+<p style="margin: 4px 0 0; font-size: 15px">Modular EV with a robotic battery swap in under three minutes, sold with a battery subscription; vehicle in road testing.</p>
+<div style="margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F">VEGA IS ON</div>
+<p style="margin: 4px 0 0; font-size: 15px">Product positioning, market traction and market building, manufacturing strategy and partnerships, venture debt and fundraise.</p>
+</div>
+<div style="border: 1px solid #D9D7D0; background: #F5F4F0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">EV COMPONENTS</div>
+<div style="margin-top: 10px; font-weight: 600; font-size: 19px">Electronics and intelligence for EVs</div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WORKING</div>
+<p style="margin: 4px 0 0; font-size: 15px">Battery management, telematics, motor controller, dashboard, chargers. Early revenue. Looking to scale in EV industry &amp; beyond.</p>
+<div style="margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F">VEGA IS ON</div>
+<p style="margin: 4px 0 0; font-size: 15px">Sharpening the product portfolio, taking it from EVs into adjacent industries, and building the commercial partnerships to scale revenue.</p>
+</div>
+<div style="border: 1px solid #D9D7D0; background: #F5F4F0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">DRONES &amp; AEROSPACE</div>
+<div style="margin-top: 10px; font-weight: 600; font-size: 19px">Navigation where GPS fails</div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WORKING</div>
+<p style="margin: 4px 0 0; font-size: 15px">Inertial sensors &amp; navigation controllers deployed for drones &amp; robots. Early revenue. Looking to scale in automotive &amp; other industries.</p>
+<div style="margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F">VEGA IS ON</div>
+<p style="margin: 4px 0 0; font-size: 15px">Positioning for automotive, mapping industries beyond drones and robots, and turning early revenue into repeat contracts.</p>
+</div>
+<div style="border: 1px solid #D9D7D0; background: #F5F4F0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">DRONES &amp; AEROSPACE</div>
+<div style="margin-top: 10px; font-weight: 600; font-size: 19px">Drones for Agriculture, Defence &amp; Security</div>
+<div style="margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WORKING</div>
+<p style="margin: 4px 0 0; font-size: 15px">Drones &amp; in-house developed drone components generating revenue from agriculture &amp; defence. Looking to scale further in defence &amp; exports.</p>
+<div style="margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F">VEGA IS ON</div>
+<p style="margin: 4px 0 0; font-size: 15px">Product &amp; Tech strengthening, positioning &amp; mapping to growth opportunities. Capital infusion to support rapid growth &amp; export readiness.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">05 · Why a layer like VEGA matters in the country</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 860px">Every country that became a hardware nation built a bridge from lab to market.</h2>
+<p style="margin: 24px 0 0; color: #3A4048; max-width: 700px">Some built it through the state, others through private and university institutions.<br>India has funded the prototypes, and the bridge to market is still being joined up.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 56px">
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">GOVERNMENT-LED</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 22px">Taiwan</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">ITRI, a public research institute set up in 1973, turned lab work into companies. It spun out UMC &amp; then TSMC, &amp; anchored the Hsinchu Science Park, where engineering, fabs, suppliers &amp; capital sit side by side, within a short drive of each other.</p>
+<p style="margin: 12px 0 0; font-size: 16px; font-weight: 600; color: #15181D">Result: a world leader in advanced chipmaking.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">GOVERNMENT-LED</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 22px">Israel</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">The Israel Innovation Authority funds commercialisation with grants repaid as royalties only when products sell. Its Yozma programme in the 1990s co-invested with private funds, building the venture capital industry that backs hard tech today.</p>
+<p style="margin: 12px 0 0; font-size: 16px; font-weight: 600; color: #15181D">Result: a startup nation far bigger than its size.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">PRIVATE &amp; UNIVERSITY-LED</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 22px">United States</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">Institutions like The Engine, founded by MIT, and HAX give hard-tech companies labs, engineers and patient capital. Federal programmes such as SBIR and DARPA fund early technology, and agencies like the Department of Defense act as first buyers.</p>
+<p style="margin: 12px 0 0; font-size: 16px; font-weight: 600; color: #15181D">Result: a steady path from university lab to startup.</p>
+</div>
+<div style="background: #F3E2D6; border: 1px solid #B8430F; padding: 28px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8E330B">IN THE MAKING</div>
+<div style="margin-top: 8px; font-weight: 600; font-size: 22px">India</div>
+<p style="margin: 10px 0 0; font-size: 16px; color: #3A4048">DLI, PLI, iDEX and the Semiconductor Mission are funding prototypes and building parts of the support layer. What's still forming is one path that joins engineering, manufacturing, certification, capital and buyers, to build India as a Hardware Product Nation.</p>
+<p style="margin: 12px 0 0; font-size: 16px; font-weight: 600; color: #8E330B">VEGA is designed to play a critical role here.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="doors" style="border-top: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">06 · Work with us</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 860px">We're here to unblock you.</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px">
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; border-top: 3px solid #B8430F; padding: 28px; display: grid; grid-template-rows: subgrid; grid-row: span 4; gap: 16px">
+<div style="font-weight: 600; font-size: 22px">Founders &amp;<br>Founding Teams</div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">YOU GET</div><p style="margin: 4px 0 0; font-size: 15px">Operators beside you across engineering, manufacturing, customers &amp; capital, plus the network behind them.</p></div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WE ASK</div><p style="margin: 4px 0 0; font-size: 15px">Equity &amp; openness about what's blocking you. Direct terms from the first conversation.</p></div>
+<a href="mailto:swadesh@thevegaforge.com?subject=Founder%20%E2%80%94%20what%27s%20blocking%20us&amp;body=What%20are%20you%20building%3F%0A%0AWhat%20TRL%20are%20you%20at%3F%0A%0AWhat%27s%20blocking%20you%20right%20now%3F%0A" style="align-self: start; font-weight: 500">Tell us what's blocking you →</a>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; border-top: 3px solid #15181D; padding: 28px; display: grid; grid-template-rows: subgrid; grid-row: span 4; gap: 16px">
+<div style="font-weight: 600; font-size: 22px">Investors &amp;<br>Financial Firms</div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">YOU GET</div><p style="margin: 4px 0 0; font-size: 15px">An experienced operator inside the hardware companies you back, and an early, honest read on execution risk.</p></div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WE ASK</div><p style="margin: 4px 0 0; font-size: 15px">Patient capital, timed to hardware milestones rather than software-style timelines.</p></div>
+<a href="mailto:swadesh@thevegaforge.com?subject=Investor%20conversation" style="align-self: start; font-weight: 500">Tell us what you invest in →</a>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; border-top: 3px solid #15181D; padding: 28px; display: grid; grid-template-rows: subgrid; grid-row: span 4; gap: 16px">
+<div style="font-weight: 600; font-size: 22px">Suppliers &amp;<br>Manufacturers</div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">YOU GET</div><p style="margin: 4px 0 0; font-size: 15px">An early seat with India's next deep-tech hardware makers: manufacturable designs, built for global markets.</p></div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WE ASK</div><p style="margin: 4px 0 0; font-size: 15px">Willingness to support evolving designs at low volume, with a path to scale.</p></div>
+<a href="mailto:swadesh@thevegaforge.com?subject=Supplier%20%2F%20manufacturing%20partner" style="align-self: start; font-weight: 500">Tell us what you can make →</a>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D7D0; border-top: 3px solid #15181D; padding: 28px; display: grid; grid-template-rows: subgrid; grid-row: span 4; gap: 16px">
+<div style="font-weight: 600; font-size: 22px">Government &amp;<br>Policymakers</div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">YOU GET</div><p style="margin: 4px 0 0; font-size: 15px">A partner that helps publicly funded prototypes become real products, skilled jobs &amp; domestic supply chains.</p></div>
+<div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #575E68">WHERE WE MEET</div><p style="margin: 4px 0 0; font-size: 15px">Programmes, test and certification infrastructure, and procurement pathways.</p></div>
+<a href="mailto:swadesh@thevegaforge.com?subject=Government%20%2F%20policy%20conversation" style="align-self: start; font-weight: 500">Tell us which programmes fit →</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="team" style="border-top: 1px solid #D9D7D0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #575E68">07 · The team</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 860px">Operators who have done this before.</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 48px">
+<div>
+<img src="team/swadesh.jpg" alt="Swadesh Srivastava" width="160" height="160" style="display: block; width: 160px; height: 160px; object-fit: cover; background: #E4E2DC">
+<div style="margin-top: 16px; font-weight: 600; font-size: 19px"><a href="#proof" style="color: #15181D; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #B8430F">Swadesh Srivastava</a></div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F; margin-top: 2px">FOUNDER &amp; CEO</div>
+<p style="margin: 10px 0 0; font-size: 15px; color: #15181D; font-weight: 500">From atoms to enterprise. Scientist and technocrat with 18+ years of building across three continents and multiple deep-tech industries.</p>
+<p style="margin: 10px 0 0; font-size: 13px; line-height: 1.55; color: #575E68">Semiconductors (PhD, Intel USA) → Capital Equipment (Lam, USA) → Consumer Electronics (Apple, USA) → Robotics &amp; Automation (Flipkart) → Supply-Chain Tech Entrepreneur (ZoomTail) → EV &amp; Battery 0-to-1-to-100x (VIDA / Hero)</p>
+<p style="margin: 10px 0 0; font-size: 14px; color: #3A4048">Commercialisation operator across technology-to-scale transitions.</p>
+<a href="https://www.linkedin.com/in/swedeshsrivastava/" target="_blank" rel="noopener" aria-label="Swadesh Srivastava on LinkedIn" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; min-height: 44px; font-size: 14px; font-weight: 500"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="12" cy="10" r="3"></circle><path d="M7 18c1-2.5 3-3.5 5-3.5s4 1 5 3.5"></path></svg>LinkedIn ↗</a>
+</div>
+<div>
+<img src="team/swati.jpg" alt="Swati Sharma" width="160" height="160" style="display: block; width: 160px; height: 160px; object-fit: cover; background: #E4E2DC">
+<div style="margin-top: 16px; font-weight: 600; font-size: 19px">Swati Sharma</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F; margin-top: 2px">FOUNDING TEAM &amp; HEAD OF STARTUP SUCCESS</div>
+<p style="margin: 10px 0 0; font-size: 15px; color: #15181D; font-weight: 500">Ex-Indian Navy R&amp;D and deep-tech founder; mission-critical systems and defence-tech field trials.</p>
+<p style="margin: 10px 0 0; font-size: 13px; line-height: 1.55; color: #575E68">Naval R&amp;D (built a sonar information processor and an indigenous combat management system) → Defence Tech (co-founded AiKairos; led product, government interfacing and team building, taking deep-tech solutions from concept to field trials)</p>
+<p style="margin: 10px 0 0; font-size: 14px; color: #3A4048">Built Hero’s enterprise innovation system and idea-to-impact programmes.</p>
+<a href="https://www.linkedin.com/in/swatisharma22/" target="_blank" rel="noopener" aria-label="Swati Sharma on LinkedIn" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; min-height: 44px; font-size: 14px; font-weight: 500"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="12" cy="10" r="3"></circle><path d="M7 18c1-2.5 3-3.5 5-3.5s4 1 5 3.5"></path></svg>LinkedIn ↗</a>
+</div>
+<div>
+<img src="team/chandrasekar.jpg" alt="Chandrasekar Subramanian" width="160" height="160" style="display: block; width: 160px; height: 160px; object-fit: cover; background: #E4E2DC">
+<div style="margin-top: 16px; font-weight: 600; font-size: 19px">Chandrasekar Subramanian</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F; margin-top: 2px">ADVISOR · STRATEGIC SOURCING &amp; MANUFACTURING TECH</div>
+<p style="margin: 10px 0 0; font-size: 15px; color: #15181D; font-weight: 500">20+ years across procurement, supplier industrialisation, quality and global EV supply chains.</p>
+<p style="margin: 10px 0 0; font-size: 13px; line-height: 1.55; color: #575E68">Automotive supplier development, management &amp; quality (IFB, Hyundai, Daimler; India &amp; USA) → EV supply chain &amp; industrialisation (Amazon–Rivian, a global two-wheeler leader) → Space-tech supply P&amp;L owner (a top space-tech company, USA)</p>
+<p style="margin: 10px 0 0; font-size: 14px; color: #3A4048">Strategic sourcing, vendor development, manufacturing technology selection and readiness.</p>
+<a href="https://www.linkedin.com/in/chandrasekar-subramanian-94764713/" target="_blank" rel="noopener" aria-label="Chandrasekar Subramanian on LinkedIn" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; min-height: 44px; font-size: 14px; font-weight: 500"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="12" cy="10" r="3"></circle><path d="M7 18c1-2.5 3-3.5 5-3.5s4 1 5 3.5"></path></svg>LinkedIn ↗</a>
+</div>
+<div>
+<img src="team/chaitra.jpg" alt="Chaitra Chidanand" width="160" height="160" style="display: block; width: 160px; height: 160px; object-fit: cover; background: #E4E2DC">
+<div style="margin-top: 16px; font-weight: 600; font-size: 19px">Chaitra Chidanand</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8430F; margin-top: 2px">ADVISOR · PLATFORM &amp; PARTNERSHIPS</div>
+<p style="margin: 10px 0 0; font-size: 15px; color: #15181D; font-weight: 500">Two-time fintech founder, and operating and product leader across consumer technology, media tech and AI products in India and the US.</p>
+<p style="margin: 10px 0 0; font-size: 13px; line-height: 1.55; color: #575E68">Stanford MBA → Manufacturing Tech (ESI, USA) → Media Tech (Sony, Brandissimo, Cinépolis; USA, Japan, India) → Alternative Credit &amp; Financial Services (Simple, SALT) → AI Products &amp; Businesses</p>
+<p style="margin: 10px 0 0; font-size: 14px; color: #3A4048">Founder-side execution, product strategy, PMF discovery and operating discipline.</p>
+<a href="https://www.linkedin.com/in/chaitrachidanand/" target="_blank" rel="noopener" aria-label="Chaitra Chidanand on LinkedIn" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; min-height: 44px; font-size: 14px; font-weight: 500"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="12" cy="10" r="3"></circle><path d="M7 18c1-2.5 3-3.5 5-3.5s4 1 5 3.5"></path></svg>LinkedIn ↗</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="talk" style="background: #15181D; color: #F5F4F0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 112px 24px">
+<h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Talk to Swadesh directly.</h2>
+<p style="margin: 20px 0 0; color: #C9CDD3; max-width: 620px">No forms. Just write. If you're an investor, a supplier or in government, tell us what you're looking for. We reply personally.</p>
+<div style="margin-top: 40px; display: flex; flex-direction: column; gap: 12px; font-size: clamp(20px, 2.4vw, 28px); font-weight: 500">
+<a href="mailto:swadesh@thevegaforge.com" style="color: #F08A4B; text-decoration: none">swadesh@thevegaforge.com</a>
+</div>
+<div style="margin-top: 56px; padding-top: 28px; border-top: 1px solid #3A4048; max-width: 720px">
+<div style="font-weight: 600; font-size: 20px">Building deep-tech hardware at TRL 5–9?</div>
+<p style="margin: 8px 0 0; color: #C9CDD3">Tell us what you're building, where you are, and what's blocking you. Three lines is enough.</p>
+<a href="mailto:swadesh@thevegaforge.com?subject=Founder%20%E2%80%94%20what%27s%20blocking%20us&amp;body=What%20are%20you%20building%3F%0A%0AWhat%20TRL%20are%20you%20at%3F%0A%0AWhat%27s%20blocking%20you%20right%20now%3F%0A" style="display: inline-block; margin-top: 20px; background: #F08A4B; color: #15181D; text-decoration: none; padding: 14px 24px; font-weight: 600; border-radius: 2px">Tell us what's blocking you</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #15181D; color: #A9AFB8; border-top: 1px solid #3A4048">
+<div style="max-width: 1120px; margin: 0 auto; padding: 32px 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px">
+<div><span style="color: #F5F4F0; font-weight: 700; letter-spacing: 0.32em">VEGA</span>   From prototype to purchase orders.</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px">thevegaforge.com</div>
+</div>
+</footer>
+
+</div>
+<script>
+(function(){var b=document.querySelectorAll('.trl'),n=document.getElementById('trl-n'),l=document.getElementById('trl-label'),d=document.getElementById('trl-def');
+function pick(x){b.forEach(function(y){y.classList.toggle('on',y===x)});n.textContent='TRL '+x.dataset.n;l.textContent=x.dataset.label;d.textContent=x.dataset.def;}
+b.forEach(function(x){['mouseenter','focus','click'].forEach(function(e){x.addEventListener(e,function(){pick(x)})})});pick(b[4]);})();
+</script>
+</body>
 </html>
